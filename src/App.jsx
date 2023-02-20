@@ -1,11 +1,14 @@
 import './global.css'
 
+import Header from './components/Header'
+import GlobalStyle from './style/global'
 function App() {
 
   return (
-    <div className="App">
-      <p className="">aaa</p>
-    </div>
+    <>
+    <Header />
+    <GlobalStyle />
+    </>
   )
 }
 
