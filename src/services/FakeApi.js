@@ -1,5 +1,5 @@
 /*
-Essa função existe para simular uma comunicação com o back-end, usando fetch , axios ou qualquer que seja o metodo
+Essa função existe para simular uma comunicação com o back-end, usando fetch , axios ou qualquer que seja o metodo,
 vale ressaltar que as informações presentes aqui são ficitias e não vieram de nenhuma api existente.
 caso queira ver como faria uma comunicação real tenho exemplos de api no meu github: iroDevs
 
@@ -7,7 +7,7 @@ nesse caso seria uma requisição get passando o id do usuario para pegar as lis
 
 algo assim :
 
-GET -> MinhaApi/list/{id}
+GET -> MinhaApi/list/{id_user}
 */
 
 export function loadLists() {
