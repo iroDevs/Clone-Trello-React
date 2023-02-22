@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from './styles';
-import { MdCircle, MdLabel } from 'react-icons/md';
+import { MdCircle } from 'react-icons/md';
+import { useDrag } from 'react-dnd';
 
 
 
