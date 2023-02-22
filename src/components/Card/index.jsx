@@ -4,13 +4,13 @@ import { MdCircle, MdLabel } from 'react-icons/md';
 
 
 
-function Card() {
+function Card({ data }) {
   return (
     <Container>
         <header>
-            <MdCircle size={12} color='#90ff17' />
+           {data.labels.map(label => <MdCircle size={12} key={label} color={label} /> )} 
+            <p>{data.content}</p>
         </header>
-        <p>Lorem Ipsum</p>
     </Container>
   );
 }

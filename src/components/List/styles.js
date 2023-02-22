@@ -9,6 +9,8 @@ export const Container = styled.div`
     border-left: 2px solid rgba(0,0,0,0.3);
   }
 
+  opacity: ${props => props.done ?  0.6 : 1};
+
   header {
     display: flex;
     justify-content: space-between;

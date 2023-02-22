@@ -3,21 +3,28 @@ import styled from 'styled-components';
 export const Container = styled.div`
   position: relative;
   background: #00685f;
-  border-raadius:5px;
+  border-radius:5px;
   margin-bottom: 10px;
   padding: 15px;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.8);
+  cursor: grab;
   border-top: 1px solid rgba(255, 255, 255, 0.4)
+
 
   header {
     position: absolute;
     top: -22px;
-    left: 15px;
+    left: 10px;
+    
   }
 
   p {
+    position: absolute;
     font-weight:500;
     line-height:20px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    
   }
 
 `;
