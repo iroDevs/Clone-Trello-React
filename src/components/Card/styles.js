@@ -37,8 +37,6 @@ export const Container = styled.div`
     line-height:20px;
     left: 50%;
     transform: translate(-50%, 0%);
-    
-    
   }
 
 `;
