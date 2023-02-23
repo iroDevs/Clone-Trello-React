@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled ,{ css } from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
@@ -18,12 +18,26 @@ export const Container = styled.div`
     
   }
 
+  ${props => props.isDragging && css`
+    border: 2px dashed rgba(232,232,232,0.5);
+    padding-top: 31px;
+    border-radius: 0;
+    background:transparent;
+    box-shadow: none;
+    cursor: grabbing;
+
+    p,img,header {
+      opacity:0;
+    }
+  `}
+
   p {
     position: absolute;
     font-weight:500;
     line-height:20px;
     left: 50%;
     transform: translate(-50%, 0%);
+    
     
   }
 
