@@ -1,15 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
+import BoardContext from "../../context";
 import { Container } from './styles';
 import { MdCircle } from 'react-icons/md';
 import { useDrag, useDrop } from 'react-dnd';
 
 
 
-function Card({ data,index }) {
+function Card({ data,index, listIndex }) {
   const ref = useRef();
+  const { move } = useContext(BoardContext);
   const [{isDragging}, dragRef] = useDrag({
     type: 'Card',
-    item: {index},
+    item: {index,listIndex},
     collect: monitor => ({
       isDragging: monitor.isDragging(),
     }),
@@ -20,6 +22,9 @@ function Card({ data,index }) {
     hover(item,monitor) {
       const draggedIndex = item.index;
       const targetIndex = index;
+
+      const draggedListIndex = item.listIndex;
+      //const targetListIndex = listIndex;
       
       if (draggedIndex === targetIndex) {
         return;
@@ -39,7 +44,9 @@ function Card({ data,index }) {
         return;
       }
 
-      console.log("muda a posição");
+     move(draggedListIndex ,draggedIndex,targetIndex);
+
+     item.index = targetIndex;
     }
   });
   
