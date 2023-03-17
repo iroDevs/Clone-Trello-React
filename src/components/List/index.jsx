@@ -1,12 +1,31 @@
-import React from 'react';
-
+import React, { useRef, useContext } from 'react';
+import BoardContext from "../../context";
+import { useDrag, useDrop } from 'react-dnd';
 import { Container } from './styles';
 import {MdAdd} from 'react-icons/md'
 import Card from '../Card';
 
 function List({ data, index: listIndex }) {
+  const ref = useRef();
+  const [{isDragging}, dragRef] = useDrag({
+    type: 'Card',
+    item: {listIndex},
+    collect: monitor => ({
+      isDragging: monitor.isDragging(),
+    }),
+  })
+
+  const [,dropRef] = useDrop({
+    accept:'Card',
+    hover(item,monitor) {
+      console.log("lista nova")
+    }
+
+  })
+
+  dragRef(dropRef(ref))
   return (
-    <Container done={data.done}>
+    <Container done={data.done} ref={ref} isDragging={isDragging}>
         <header>
             <h2>{data.title}</h2>
             { data.creatable && 
