@@ -7,9 +7,10 @@ import Card from '../Card';
 
 function List({ data, index: listIndex }) {
   const ref = useRef();
+  const { moveList } = useContext(BoardContext);
   const [{isDragging}, dragRef] = useDrag({
     type: 'Card',
-    item: {listIndex},
+    item: {data,listIndex},
     collect: monitor => ({
       isDragging: monitor.isDragging(),
     }),
@@ -18,7 +19,15 @@ function List({ data, index: listIndex }) {
   const [,dropRef] = useDrop({
     accept:'Card',
     hover(item,monitor) {
-      console.log("lista nova")
+      const draggedListIndex = item.listIndex; //lista que eu estou
+      const targetListIndex = listIndex; // lista para onde eu vou
+
+      if ( draggedListIndex === targetListIndex )
+        return;
+
+     
+
+      moveList(draggedListIndex , targetListIndex , item.index)
     }
 
   })
